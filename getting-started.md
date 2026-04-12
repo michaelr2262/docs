@@ -8,7 +8,7 @@ description: Add SentinelFX to your server and get protected in minutes.
 
 ## Step 1 — Invite the Bot
 
-Use the official invite link from [sentinelfx.com](https://sentinelfx.com) to add SentinelFX to your Discord server. Grant it the permissions it requests — these are required for enforcement actions to work.
+Use the official invite link from [sentinelfx.net](https://sentinelfx.net) to add SentinelFX to your Discord server. Grant it the permissions it requests — these are required for enforcement actions to work.
 
 {% hint style="warning" %}
 SentinelFX needs **Ban Members**, **Moderate Members**, **Manage Channels**, and **Send Messages** at minimum. Without these, enforcement actions will silently fail.

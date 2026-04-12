@@ -55,3 +55,7 @@ Commands Reference
 {% content-ref url="configuration.md" %}
 Server Configuration
 {% endcontent-ref %}
+
+{% content-ref url="appeals.md" %}
+Appeals
+{% endcontent-ref %}

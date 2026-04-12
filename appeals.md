@@ -12,9 +12,9 @@ Any user with an active SentinelFX network ban can submit an appeal. If the Sent
 
 ## For Banned Users — How to Appeal
 
-### Step 1 — Use the `/appeal` Command
+### Step 1 — Visit the Dashboard
 
-Run `/appeal` in any server where SentinelFX is present. This opens a modal with a single text field.
+Go to [sentinelfx.net](https://sentinelfx.net) and log in with your Discord account. If you have an active network ban, an **Appeal** option will be available in your account area.
 
 ### Step 2 — Write Your Appeal
 
@@ -48,23 +48,20 @@ If your appeal is approved, you will be unbanned from every network server autom
 
 <figure><img src="sfx_approved.svg" alt="Approved" width="48"></figure>
 
-Appeals can be reviewed in two ways:
+Appeals are reviewed through the **SentinelFX Dashboard** at [sentinelfx.net](https://sentinelfx.net). The dashboard shows the team:
 
-### Via Discord Buttons
+- The full appeal text
+- The user's complete network history
+- Their current threat score
+- The original ban reason and evidence link
+- Status controls: **Approve**, **Deny**, **Under Review**
 
-When an appeal is submitted, a notification appears in the HQ server with **Approve** and **Deny** buttons. Clicking Approve immediately lifts the ban across all servers and marks the appeal as approved.
+### Discord Notification
 
-### Via the Web Dashboard
-
-Appeals can also be managed through the dashboard at `sentinelfx.com/dashboard`. The dashboard shows:
-- The appeal text
-- The user's full network history
-- Their threat score
-- The original ban reason and evidence
-- Approve / Deny / Under Review status controls
+When a new appeal is submitted, a notification also appears in the HQ server so the team knows to check the dashboard. The HQ server provides quick **Approve** and **Deny** buttons that update the dashboard status in real time.
 
 {% hint style="warning" %}
-Once an appeal is marked **approved** or **denied**, its status cannot be changed again. Make sure you've reviewed the full history before approving.
+Once an appeal is marked **approved** or **denied**, its status cannot be changed again. Review the user's full history before approving.
 {% endhint %}
 
 ---

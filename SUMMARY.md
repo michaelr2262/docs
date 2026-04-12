@@ -23,4 +23,5 @@
 
 ## Setup & Config
 * [Server Configuration](configuration.md)
+* [Web Dashboard](dashboard.md)
 * [Appeals](appeals.md)

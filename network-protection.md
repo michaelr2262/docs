@@ -134,6 +134,6 @@ The score factors in active bans, prior lifted bans, network warnings, and pendi
 
 ## Appeals
 
-Banned users can submit an appeal via `/appeal` in any server the bot is in. The SentinelFX Team reviews the appeal and can approve or deny it. An approved appeal lifts the ban across every server at once.
+Banned users can submit an appeal through the dashboard at [sentinelfx.net](https://sentinelfx.net). The SentinelFX Team reviews it and can approve or deny it. An approved appeal lifts the ban across every server at once.
 
 See [Appeals](appeals.md) for the full process.
