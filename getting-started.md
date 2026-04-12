@@ -1,0 +1,93 @@
+---
+description: Add SentinelFX to your server and get protected in minutes.
+---
+
+# Getting Started
+
+<figure><img src="sfx_shield.svg" alt="Shield" width="64"></figure>
+
+## Step 1 — Invite the Bot
+
+Use the official invite link from [sentinelfx.com](https://sentinelfx.com) to add SentinelFX to your Discord server. Grant it the permissions it requests — these are required for enforcement actions to work.
+
+{% hint style="warning" %}
+SentinelFX needs **Ban Members**, **Moderate Members**, **Manage Channels**, and **Send Messages** at minimum. Without these, enforcement actions will silently fail.
+{% endhint %}
+
+---
+
+## Step 2 — Run First-Time Config
+
+Once the bot is in your server, use `/config view` to see the current state of your configuration. Everything starts as disabled or unset.
+
+```
+/config view
+```
+
+You'll see a panel showing which modules are active and which channels/roles are configured.
+
+---
+
+## Step 3 — Set Your Channels and Roles
+
+Tell SentinelFX where to send its alerts and who your staff are.
+
+```
+/config set-channel mod-log   #mod-log
+/config set-channel network   #network-bans
+/config set-channel raid-alert #raid-alerts
+/config set-role mod          @Moderator
+/config set-role admin        @Admin
+/config set-role verified     @Verified
+```
+
+| Channel | Purpose |
+|---------|---------|
+| `mod-log` | All moderation actions (bans, kicks, mutes, warns) |
+| `network` | Notifications when a network ban is deployed to your server |
+| `raid-alert` | Anti-raid lockdown notifications and unlock button |
+| `welcome` | Where verification challenges are sent if DMs are closed |
+
+---
+
+## Step 4 — Enable Modules
+
+Turn on the protections you want:
+
+```
+/config toggle anti-raid     true
+/config toggle auto-mod      true
+/config toggle verification  true
+/config toggle network-bans  true
+```
+
+| Module | What it does |
+|--------|-------------|
+| `anti-raid` | Detects mass joins and auto-locks the server |
+| `auto-mod` | Catches spam, scam links, banned words in real time |
+| `verification` | Sends a math CAPTCHA to every new join |
+| `network-bans` | Auto-applies network bans when a user joins or is swept |
+
+---
+
+## Step 5 — Sync Existing Bans
+
+If you've just joined the network, pull all existing bans down immediately:
+
+```
+/network-sync
+```
+
+This applies every active network ban to your server's Discord ban list in one shot. From that point forward, new bans apply automatically.
+
+---
+
+## Step 6 — You're Protected
+
+<figure><img src="sfx_online.svg" alt="Online" width="48"></figure>
+
+Your server is now part of the SentinelFX network. Any user banned across the network will be removed from your server — automatically, at the moment of approval, when they join, and during every 6-hour sweep.
+
+{% hint style="success" %}
+**Tip:** Run `/network-status stats` at any time to see how many servers are in the network and how many active bans are in effect.
+{% endhint %}

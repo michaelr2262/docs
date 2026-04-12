@@ -1,0 +1,24 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="128" height="128" fill="#050507"/>
+  <defs><linearGradient id="w1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#2563ff"/></linearGradient></defs>
+  <g transform="translate(64,64)">
+    <polygon points="0,-52 45,-26 45,26 0,52 -45,26 -45,-26" fill="none" stroke="#2563ff" stroke-width="3"/>
+    <line x1="0" y1="-52" x2="0" y2="-42" stroke="#2563ff" stroke-width="3"/>
+    <line x1="0" y1="42" x2="0" y2="52" stroke="#2563ff" stroke-width="3"/>
+    <line x1="-45" y1="-26" x2="-36" y2="-21" stroke="#2563ff" stroke-width="3"/>
+    <line x1="45" y1="-26" x2="36" y2="-21" stroke="#2563ff" stroke-width="3"/>
+    <line x1="-45" y1="26" x2="-36" y2="21" stroke="#2563ff" stroke-width="3"/>
+    <line x1="45" y1="26" x2="36" y2="21" stroke="#2563ff" stroke-width="3"/>
+    <path d="M0 0 L0,-38 A38,38 0 0 1 33,19 Z" fill="#2563ff" opacity="0.1"/>
+    <ellipse rx="22" ry="12" fill="none" stroke="#2563ff" stroke-width="2"/>
+    <line x1="-14" y1="-9" x2="-16" y2="-14" stroke="#2563ff" stroke-width="1.5" opacity="0.6"/>
+    <line x1="-7" y1="-12" x2="-7.5" y2="-17" stroke="#2563ff" stroke-width="1.5" opacity="0.5"/>
+    <line x1="0" y1="-12" x2="0" y2="-17" stroke="#2563ff" stroke-width="1.5" opacity="0.6"/>
+    <line x1="7" y1="-12" x2="7.5" y2="-17" stroke="#2563ff" stroke-width="1.5" opacity="0.5"/>
+    <line x1="14" y1="-9" x2="16" y2="-14" stroke="#2563ff" stroke-width="1.5" opacity="0.6"/>
+    <circle r="8" fill="#050507" stroke="#4d84ff" stroke-width="1.5"/>
+    <circle r="4.5" fill="#050507" stroke="#2563ff" stroke-width="1"/>
+    <circle r="2.5" fill="url(#w1)"/>
+    <circle cx="2" cy="-1.5" r="1.2" fill="#fff" opacity="0.6"/>
+  </g>
+</svg>
