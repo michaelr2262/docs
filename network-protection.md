@@ -39,7 +39,7 @@ The report is posted to a private review channel in the HQ server. The team vote
 The bot counts votes in real time. Once the approval threshold is reached (default: **3 approvals**), the ban is confirmed. If the denial threshold is reached first (default: **2 denials**), the report is dismissed.
 
 {% hint style="info" %}
-The SentinelFX Team can view all pending reports and their current vote tallies at any time with `/pending-reports`.
+The SentinelFX Team can view all pending reports and their current vote tallies from the review queue on the [Web Dashboard](dashboard.md).
 {% endhint %}
 
 ---

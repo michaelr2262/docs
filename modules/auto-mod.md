@@ -101,12 +101,7 @@ Log action to mod-log channel
 /config toggle auto-mod true
 ```
 
-To set your banned word list:
-```
-/banned-words add <word>
-/banned-words list
-/banned-words remove <word>
-```
+To set your banned word list, use the [Web Dashboard → Auto-Mod](../dashboard.md) — add, remove, and bulk-paste words from a searchable table.
 
 To adjust thresholds:
 ```

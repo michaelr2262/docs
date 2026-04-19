@@ -78,7 +78,7 @@ Once an appeal is marked **approved** or **denied**, its status cannot be change
 
 ## What Happens When a Ban is Lifted
 
-When an appeal is approved (or a manual `/network-unban` is run):
+When an appeal is approved (or a staff member lifts the ban from the dashboard):
 
 1. The user's `network_bans` record is updated to `lifted`
 2. The user is unbanned from every server with Auto-apply bans enabled

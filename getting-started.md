@@ -89,7 +89,7 @@ This applies every active network ban to your server's Discord ban list in one s
 Your server is now part of the SentinelFX network. Any user banned across the network will be removed from your server — automatically, at the moment of approval, when they join, and during every 6-hour sweep.
 
 {% hint style="success" %}
-**Tip:** Run `/network-status stats` at any time to see how many servers are in the network and how many active bans are in effect.
+**Tip:** Open the [Web Dashboard](dashboard.md) at any time to see how many servers are in the network, how many active bans are in effect, and live stats for your own server.
 {% endhint %}
 
 ---

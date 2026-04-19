@@ -67,23 +67,9 @@ Adjust numeric limits for auto-escalation and detection.
 
 ---
 
-## `/banned-words`
-
-Manage the per-server list of banned words and phrases. The [Auto-Mod](../modules/auto-mod.md) module uses this list to delete violating messages in real time.
-
-**Required permission:** Manage Guild
-
-### `/banned-words list`
-
-Show all banned words currently set for this server.
-
-### `/banned-words add <word>`
-
-Add a word or phrase to the filter. Matching is case-insensitive.
-
-### `/banned-words remove <word>`
-
-Remove a word or phrase from the filter.
+{% hint style="info" %}
+**Managing banned words?** The banned-words list has moved to the [Web Dashboard](../dashboard.md) — paste-in-bulk, search, and edit are all faster there than a slash command.
+{% endhint %}
 
 ---
 
