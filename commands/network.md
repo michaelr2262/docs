@@ -38,20 +38,6 @@ Reports are reviewed by the SentinelFX Team before any action is taken. Submitti
 
 ---
 
-## Appeals
-
-<figure><img src="../sfx_appeal.svg" alt="Appeal" width="48"></figure>
-
-Appeals are submitted through the **SentinelFX Dashboard** — not a slash command. Banned users visit [sentinelfx.net](https://sentinelfx.net), log in with Discord, and submit their appeal from their account page.
-
-The appeal must be between **50 and 1,000 characters** explaining why the ban should be lifted. The SentinelFX Team reviews it and responds via the dashboard.
-
-{% hint style="warning" %}
-You must currently have an active network ban to submit an appeal. Only one open appeal is allowed at a time.
-{% endhint %}
-
----
-
 ## `/network-status`
 
 Check network information. Has three subcommands.

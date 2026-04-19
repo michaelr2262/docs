@@ -6,7 +6,7 @@ description: Network-wide FiveM server protection — one ban list, every server
 
 <figure><img src="sentinelfx-logo-dark.svg" alt="SentinelFX" width="360"></figure>
 
-SentinelFX is a cross-server Discord protection bot built for FiveM communities. When a bad actor is reported and confirmed in one server, they are automatically banned from every server in the network — with no manual action required.
+SentinelFX is a cross-server Discord protection bot built for FiveM communities. When a bad actor is reported and confirmed in one server, they are automatically banned from every server in the network — with no manual action required. An optional in-game resource extends the same ban list into FiveM itself, so one decision blocks the player on Discord and in every FXServer that runs the resource.
 
 ---
 
@@ -21,6 +21,8 @@ SentinelFX is a cross-server Discord protection bot built for FiveM communities.
 <tr><td><img src="sfx_verified.svg" width="48"><br><strong>Verification</strong></td><td>Math CAPTCHA on join blocks bot accounts before they reach your members.</td></tr>
 <tr><td><img src="sfx_alert.svg" width="48"><br><strong>Anti-Raid</strong></td><td>Mass-join detection triggers automatic lockdown with a one-click unlock.</td></tr>
 <tr><td><img src="sfx_scanning.svg" width="48"><br><strong>Threat Scoring</strong></td><td>Every user gets a live risk score based on their cross-network history.</td></tr>
+<tr><td><img src="sfx_online.svg" width="48"><br><strong>FiveM Bridge</strong></td><td>Mirror in-game bans into the network and live-monitor your FXServer from the dashboard.</td></tr>
+<tr><td><img src="sfx_banned.svg" width="48"><br><strong>HWID Evasion Guard</strong></td><td>Hardware fingerprints catch alts even when the player changes every other identifier.</td></tr>
 </tbody>
 </table>
 
@@ -36,6 +38,8 @@ SentinelFX never relies on a single check. Every network-banned user faces **thr
 | **Join-time** | When a user joins any member server | Checks the ban list and bans automatically if matched |
 | **Sweep-time** | Every 6 hours (00:00, 06:00, 12:00, 18:00 UTC) | Scans all member servers for any banned users that were missed |
 
+With the FiveM resource installed, these same bans are enforced on connect to your FXServer — matched against every identifier the player uses (license, Steam, Xbox Live, Discord, fivem, and hardware tokens).
+
 ---
 
 ## Quick Links
@@ -48,14 +52,14 @@ Getting Started
 How the Network Works
 {% endcontent-ref %}
 
+{% content-ref url="fivem.md" %}
+FiveM Integration
+{% endcontent-ref %}
+
 {% content-ref url="commands/README.md" %}
 Commands Reference
 {% endcontent-ref %}
 
 {% content-ref url="configuration.md" %}
 Server Configuration
-{% endcontent-ref %}
-
-{% content-ref url="appeals.md" %}
-Appeals
 {% endcontent-ref %}

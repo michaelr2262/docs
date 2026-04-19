@@ -85,6 +85,39 @@ This is the safety net for:
 
 ---
 
+## Extending Bans Into FiveM
+
+<figure><img src="sfx_online.svg" alt="FiveM bridge" width="48"></figure>
+
+Communities that run the optional SentinelFX FiveM resource get a fourth enforcement point: **on-connect** inside the game server itself.
+
+When a player joins an FXServer running the resource, SentinelFX checks every identifier the client presents against the network ban list:
+
+| Identifier | Catches |
+|-----------|---------|
+| `license` / `license2` | Rockstar Social Club identity |
+| `steam` | Steam account |
+| `discord` | Linked Discord account (when CFX exposes it) |
+| `xbl` / `live` | Xbox Live / Microsoft account |
+| `fivem` | Cfx.re forum account |
+| Hardware tokens | Physical machine fingerprint |
+
+A network ban on **any** of these blocks the player on **every** FXServer running the resource — including servers the player has never connected to before.
+
+### HWID Evasion
+
+When a banned player creates a new Discord or Rockstar account to dodge the ban, the resource forwards the client's hardware tokens. If those tokens match a user already on the network ban list, the new account is flagged and blocked before it ever loads into the game. See [FiveM Overview](fivem.md) for how the identity ledger ties alts together.
+
+### Cross-Platform Coverage
+
+Because identifiers are stored in a shared ledger, a ban issued from Discord propagates into FiveM the moment the player's license or Steam ID is known, and a ban issued from an in-game cheat-scan can (with staff approval) propagate back onto Discord across every guild in the network.
+
+{% hint style="info" %}
+Installing the resource is opt-in per FXServer. See [Installing the Resource](fivem-resource.md) for the setup flow.
+{% endhint %}
+
+---
+
 ## Ban Lifecycle
 
 ```
@@ -97,13 +130,6 @@ Threshold reached
 Ban deployed to all servers ──→ [User present? → Instant ban]
     ↓                           [User joins later? → Auto-ban]
 Watchdog sweeps (every 6h) ─→  [User found? → Sweep ban]
-    ↓
-Appeal submitted (optional)
-    ↓
-Team reviews appeal
-    ↓
-Approved → Ban lifted across all servers
-Denied   → Ban remains
 ```
 
 ---
@@ -130,10 +156,3 @@ Every user receives a **0–100 risk score** based on their full cross-network h
 
 The score factors in active bans, prior lifted bans, network warnings, and pending reports. See [Threat Score Engine](modules/threat-score.md).
 
----
-
-## Appeals
-
-Banned users can submit an appeal through the dashboard at [sentinelfx.net](https://sentinelfx.net). The SentinelFX Team reviews it and can approve or deny it. An approved appeal lifts the ban across every server at once.
-
-See [Appeals](appeals.md) for the full process.

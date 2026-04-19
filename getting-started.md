@@ -91,3 +91,27 @@ Your server is now part of the SentinelFX network. Any user banned across the ne
 {% hint style="success" %}
 **Tip:** Run `/network-status stats` at any time to see how many servers are in the network and how many active bans are in effect.
 {% endhint %}
+
+---
+
+## Step 7 — Connect Your FiveM Server (optional)
+
+<figure><img src="sfx_network.svg" alt="FiveM" width="48"></figure>
+
+If your community runs FiveM, you can extend the same network ban list into your FXServer. The flow, at a glance:
+
+1. Open the **FiveM** tab in the dashboard and register your server.
+2. Pick a **ban mode** — `review` is the default and recommended.
+3. Download the pre-baked resource zip.
+4. Drop the folder into your FXServer's `resources/` directory.
+5. Add `ensure sentinelfx` to your `server.cfg` and restart.
+
+Within a couple of minutes the dashboard will show a green heartbeat and your server is live on the network.
+
+{% content-ref url="fivem-resource.md" %}
+Installing the Resource
+{% endcontent-ref %}
+
+{% content-ref url="fivem.md" %}
+FiveM Integration Overview
+{% endcontent-ref %}

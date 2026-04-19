@@ -21,7 +21,11 @@
 * [Verification System](modules/verification.md)
 * [Alt Account Detection](modules/alt-detection.md)
 
+## FiveM Integration
+* [FiveM Overview](fivem.md)
+* [Installing the Resource](fivem-resource.md)
+* [Ban Modes & Propagation](fivem-ban-modes.md)
+
 ## Setup & Config
 * [Server Configuration](configuration.md)
 * [Web Dashboard](dashboard.md)
-* [Appeals](appeals.md)
