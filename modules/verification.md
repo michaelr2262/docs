@@ -49,7 +49,7 @@ Numbers are randomised each time. The user has **5 minutes** to complete verific
 
 Once a user answers correctly:
 
-1. They receive the role set via `/config set-role verified`
+1. They receive the role set via `/config set-role verified_role`
 2. The verification record is removed from the database
 3. The event is logged to your mod-log channel
 
@@ -63,8 +63,8 @@ Make sure the **Verified** role is the gate to your normal channels. Members wit
 
 ```
 /config toggle verification true
-/config set-role verified @Verified
-/config set-channel welcome #verify-here
+/config set-role verified_role @Verified
+/config set-channel welcome_ch #verify-here
 ```
 
 ---

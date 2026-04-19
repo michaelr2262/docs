@@ -32,7 +32,7 @@ The score is calculated by summing weighted factors, with caps to prevent any si
 | 1 pending report | 15 |
 | 1 prior lifted ban + 3 warnings | 35 |
 | 2 prior lifted bans + active ban | 80 |
-| Active ban + 2 prior + 2 pending | 100 (capped) |
+| Active ban + 2 prior + 4 warnings + 1 pending | 100 (capped) |
 
 ---
 
@@ -50,10 +50,10 @@ The score is calculated by summing weighted factors, with caps to prevent any si
 
 ## Where the Score Appears
 
-- **`/userinfo`** — shown on every user lookup
-- **`/network-status check`** — displayed alongside ban details
-- **`/pending-reports`** — on the vote panel for each pending report
-- **Alt Detection alerts** — shown when a potential alt is flagged on join
+- **On-join alert** — when a user joins any member server, their score is computed. If they land in the medium or high risk tier, an alert is pushed to your mod-log.
+- **Network Ban Registered embed** — posted to the HQ ban channel every time a new network ban is deployed, with a 0–100 score bar and risk label.
+- **Appeal review embed** — when a user submits an appeal, the HQ review post includes their current score so staff can weigh it against the appeal.
+- **Alt Detection alerts** — shown on the alt-match embed when a potential alt is flagged on join.
 
 ---
 

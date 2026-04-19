@@ -21,7 +21,7 @@ It's opt-in, per FXServer, and takes about five minutes to install.
 <tr><td><img src="sfx_verified.svg" width="48"><br><strong>Identity Linking</strong></td><td>Every identifier a player uses — license, Steam, Xbox, Discord, Cfx.re — is stitched into one profile so one ban covers all alts.</td></tr>
 <tr><td><img src="sfx_scanning.svg" width="48"><br><strong>HWID Evasion Guard</strong></td><td>Hardware tokens catch banned users on brand-new accounts before they load in.</td></tr>
 <tr><td><img src="sfx_online.svg" width="48"><br><strong>Live Stats</strong></td><td>Uptime, player counts, event histograms, review queue — all on the dashboard, in real time.</td></tr>
-<tr><td><img src="sfx_alert.svg" width="48"><br><strong>In-Game Ban Review</strong></td><td>Bans from ACE cheat-scans can post to your staff channel with Approve / Deny / Ignore buttons.</td></tr>
+<tr><td><img src="sfx_alert.svg" width="48"><br><strong>In-Game Ban Review</strong></td><td>Bans from ACE cheat-scans can post to your staff review channel with Approve / Deny / Ignore buttons.</td></tr>
 <tr><td><img src="sfx_shield.svg" width="48"><br><strong>Cross-Platform Coverage</strong></td><td>A ban issued on Discord propagates into FiveM. A reviewed in-game ban propagates onto Discord. One decision, both sides.</td></tr>
 </tbody>
 </table>
@@ -45,7 +45,7 @@ When a ban is issued in-game, what happens next depends on your server's **ban m
 | Mode     | What happens |
 |----------|-------------|
 | `off`    | Event is logged. No Discord or network action. |
-| `review` | A case is posted to your staff channel (and the dashboard) with **Approve / Deny / Ignore** buttons. A moderator decides. |
+| `review` | A case is posted to your staff review channel (and the dashboard) with **Approve / Deny / Ignore** buttons. A moderator decides. |
 | `auto`   | Immediate network ban — enforced across Discord and every FXServer in the network. |
 
 See [Ban Modes & Propagation](fivem-ban-modes.md) for the full trade-off guide.

@@ -29,7 +29,7 @@ Enable or disable a module.
 | `anti-raid` | Automatic raid detection and lockdown |
 | `auto-mod` | Real-time message moderation |
 | `verification` | Math CAPTCHA for new joins |
-| `network-bans` | Auto-apply network bans on join and sweep |
+| `auto-apply-bans` | Auto-apply network bans on join and sweep |
 
 ### `/config set-channel <type> <channel>`
 
@@ -37,10 +37,10 @@ Configure where SentinelFX sends its messages.
 
 | Type | Purpose |
 |------|---------|
-| `mod-log` | All moderation action logs |
-| `network` | Network ban deployment notifications |
-| `raid-alert` | Anti-raid lockdown alerts and unlock button |
-| `welcome` | Verification challenge fallback (if DMs are closed) |
+| `mod_log_channel` | All moderation action logs |
+| `network_ban_ch` | Network ban deployment notifications |
+| `raid_alert_ch` | Anti-raid lockdown alerts and unlock button |
+| `welcome_ch` | Verification challenge fallback (if DMs are closed) |
 
 ### `/config set-role <type> <role>`
 
@@ -48,9 +48,9 @@ Tell SentinelFX which roles belong to which staff tier.
 
 | Type | Purpose |
 |------|---------|
-| `mod` | Moderator role (exempted from auto-mod, can use mod commands) |
-| `admin` | Admin role |
-| `verified` | Role granted after passing verification |
+| `mod_role` | Moderator role (exempted from auto-mod, can use mod commands) |
+| `admin_role` | Admin role |
+| `verified_role` | Role granted after passing verification |
 
 ### `/config thresholds <options>`
 
@@ -58,11 +58,10 @@ Adjust numeric limits for auto-escalation and detection.
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `warn_mute_at` | 3 | Warning count that triggers auto-mute |
-| `warn_kick_at` | 5 | Warning count that triggers auto-kick |
-| `warn_ban_at` | 7 | Warning count that triggers auto-ban |
+| `warn_mute` | 3 | Warning count that triggers auto-mute |
+| `warn_kick` | 5 | Warning count that triggers auto-kick |
+| `warn_ban` | 7 | Warning count that triggers auto-ban |
 | `spam_limit` | 5 | Messages per 5 seconds before spam detection fires |
-| `mention_limit` | 5 | Mentions per message before mass-mention fires |
 | `raid_threshold` | 10 | Joins within the raid window to trigger lockdown |
 | `raid_window` | 10 | Time window in seconds for counting joins |
 

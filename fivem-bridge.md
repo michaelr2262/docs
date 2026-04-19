@@ -40,14 +40,9 @@ const fivem = require('./fivem');
 app.use('/fivem', fivem.router);
 ```
 
-## 3. Watchdog loop (optional)
+## 3. Watchdog loop
 
-Add to `utils/watchdog.js` so stale review cases don't sit forever:
-
-```js
-const fivem = require('../modules/fivemBridge');
-setInterval(() => fivem.expireOldReviews().catch(() => {}), 6 * 3600_000);
-```
+Automatic: wired in `index.js` at boot — runs 60 s after start and every 6 h afterwards. No extra setup needed.
 
 ---
 

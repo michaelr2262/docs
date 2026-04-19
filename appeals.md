@@ -12,13 +12,19 @@ Any user with an active SentinelFX network ban can submit an appeal. If the Sent
 
 ## For Banned Users — How to Appeal
 
-### Step 1 — Visit the Dashboard
+### Step 1 — Run `/appeal`
 
-Go to [sentinelfx.net](https://sentinelfx.net) and log in with your Discord account. If you have an active network ban, an **Appeal** option will be available in your account area.
+In any SentinelFX-protected server you still share with the bot, run:
+
+```
+/appeal
+```
+
+This opens a modal titled **Network Ban Appeal**. If you no longer share a server with the bot, skip to the dashboard alternative below.
 
 ### Step 2 — Write Your Appeal
 
-You must provide between **50 and 1,000 characters** explaining why your ban should be lifted. Be specific — vague appeals are less likely to be approved.
+The modal has a single paragraph field — **"Why should your ban be lifted?"** — that accepts between **50 and 1,000 characters**. Be specific — vague appeals are less likely to be approved.
 
 Things to include:
 - Why you believe the original ban was incorrect or unfair
@@ -41,6 +47,10 @@ The team will mark your appeal as one of the following:
 {% hint style="info" %}
 If your appeal is approved, you will be unbanned from every network server automatically. You do not need to rejoin or contact individual server owners.
 {% endhint %}
+
+### Alternative — Dashboard
+
+If you don't share a server with SentinelFX, log in at [sentinelfx.net](https://sentinelfx.net) with Discord. If you have an active network ban, a **Submit Appeal** button appears next to it in your account area. The same 50–1,000 character rule applies.
 
 ---
 

@@ -55,7 +55,7 @@ The Unlock button in the alert lets any moderator clear the lockdown instantly w
 
 ```
 /config toggle anti-raid true
-/config set-channel raid-alert #raid-alerts
+/config set-channel raid_alert_ch #raid-alerts
 ```
 
 ---

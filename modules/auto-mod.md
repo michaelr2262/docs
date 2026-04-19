@@ -110,5 +110,5 @@ To set your banned word list:
 
 To adjust thresholds:
 ```
-/config thresholds spam_limit:4 mention_limit:3
+/config thresholds spam_limit:4
 ```

@@ -33,20 +33,20 @@ You'll see a panel showing which modules are active and which channels/roles are
 Tell SentinelFX where to send its alerts and who your staff are.
 
 ```
-/config set-channel mod-log   #mod-log
-/config set-channel network   #network-bans
-/config set-channel raid-alert #raid-alerts
-/config set-role mod          @Moderator
-/config set-role admin        @Admin
-/config set-role verified     @Verified
+/config set-channel mod_log_channel #mod-log
+/config set-channel network_ban_ch  #network-bans
+/config set-channel raid_alert_ch   #raid-alerts
+/config set-role mod_role       @Moderator
+/config set-role admin_role     @Admin
+/config set-role verified_role  @Verified
 ```
 
 | Channel | Purpose |
 |---------|---------|
-| `mod-log` | All moderation actions (bans, kicks, mutes, warns) |
-| `network` | Notifications when a network ban is deployed to your server |
-| `raid-alert` | Anti-raid lockdown notifications and unlock button |
-| `welcome` | Where verification challenges are sent if DMs are closed |
+| `mod_log_channel` | All moderation actions (bans, kicks, mutes, warns) |
+| `network_ban_ch` | Notifications when a network ban is deployed to your server |
+| `raid_alert_ch` | Anti-raid lockdown notifications and unlock button |
+| `welcome_ch` | Where verification challenges are sent if DMs are closed |
 
 ---
 
@@ -55,10 +55,10 @@ Tell SentinelFX where to send its alerts and who your staff are.
 Turn on the protections you want:
 
 ```
-/config toggle anti-raid     true
-/config toggle auto-mod      true
-/config toggle verification  true
-/config toggle network-bans  true
+/config toggle anti-raid        true
+/config toggle auto-mod         true
+/config toggle verification     true
+/config toggle auto-apply-bans  true
 ```
 
 | Module | What it does |
@@ -66,7 +66,7 @@ Turn on the protections you want:
 | `anti-raid` | Detects mass joins and auto-locks the server |
 | `auto-mod` | Catches spam, scam links, banned words in real time |
 | `verification` | Sends a math CAPTCHA to every new join |
-| `network-bans` | Auto-applies network bans when a user joins or is swept |
+| `auto-apply-bans` | Auto-applies network bans when a user joins or is swept |
 
 ---
 

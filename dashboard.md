@@ -82,7 +82,7 @@ If you've registered one or more FXServers with SentinelFX, each one gets its ow
 
 At the top of the page:
 
-- **Uptime** — calculated from the resource's heartbeat, which pings every 5 minutes. A gap longer than one missed ping plus a short grace window counts as downtime.
+- **Uptime** — calculated from the resource's heartbeat, which pings every 5 minutes. A server is considered offline after 10 minutes of silence — roughly two missed pings.
 - **Player count** — current connected players, plus peak over the selected range.
 - **Heartbeat indicator** — green while pings are arriving, red the moment one is missed.
 
