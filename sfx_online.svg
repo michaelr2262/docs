@@ -1,10 +1,5 @@
-<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g transform="translate(64,64)">
-    <circle r="50" fill="#0a1a10" stroke="#00e87a" stroke-width="3"/>
-    <circle r="36" fill="none" stroke="#00e87a" stroke-width="1.5" opacity="0.3"/>
-    <circle r="22" fill="none" stroke="#00e87a" stroke-width="1.5" opacity="0.2"/>
-    <circle r="12" fill="#00e87a"/>
-    <circle r="6" fill="#050507"/>
-    <circle r="2.5" fill="#00e87a"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <polygon points="64,6 116,36 116,92 64,122 12,92 12,36" fill="#0d2a1a" stroke="#1d9e75" stroke-width="6"/>
+  <polygon points="64,6 116,36 116,92 64,122 12,92 12,36" fill="none" stroke="#00e87a" stroke-width="3" opacity="0.4"/>
+  <polyline points="38,66 56,84 92,46" fill="none" stroke="#00e87a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

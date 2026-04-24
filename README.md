@@ -17,12 +17,14 @@ SentinelFX is a cross-server Discord protection bot built for FiveM communities.
 <tbody>
 <tr><td><img src="sfx_network.svg" width="48"><br><strong>Network Bans</strong></td><td>One approved ban deploys across every connected server simultaneously.</td></tr>
 <tr><td><img src="sfx_shield.svg" width="48"><br><strong>Auto-Moderation</strong></td><td>Spam, scam links, mass mentions, and banned words handled in real time.</td></tr>
+<tr><td><img src="sfx_reported.svg" width="48"><br><strong>Hybrid Auto-Action</strong></td><td>A deterministic rule engine plus an optional AI judge, with hard safety rails, triages reports before they hit the human queue.</td></tr>
 <tr><td><img src="sfx_watchdog.svg" width="48"><br><strong>Watchdog</strong></td><td>Scheduled sweeps catch any banned user who slips through the cracks.</td></tr>
 <tr><td><img src="sfx_verified.svg" width="48"><br><strong>Verification</strong></td><td>Math CAPTCHA on join blocks bot accounts before they reach your members.</td></tr>
 <tr><td><img src="sfx_alert.svg" width="48"><br><strong>Anti-Raid</strong></td><td>Mass-join detection triggers automatic lockdown with a one-click unlock.</td></tr>
 <tr><td><img src="sfx_scanning.svg" width="48"><br><strong>Threat Scoring</strong></td><td>Every user gets a live risk score based on their cross-network history.</td></tr>
 <tr><td><img src="sfx_online.svg" width="48"><br><strong>FiveM Bridge</strong></td><td>Mirror in-game bans into the network and live-monitor your FXServer from the dashboard.</td></tr>
 <tr><td><img src="sfx_banned.svg" width="48"><br><strong>HWID Evasion Guard</strong></td><td>Hardware fingerprints catch alts even when the player changes every other identifier.</td></tr>
+<tr><td><img src="sfx_appeal.svg" width="48"><br><strong>Real Appeals</strong></td><td>Threaded appeal conversations, seen receipts, and human-only review — even on AI-influenced bans.</td></tr>
 </tbody>
 </table>
 

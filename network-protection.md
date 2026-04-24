@@ -44,6 +44,30 @@ The SentinelFX Team can view all pending reports and their current vote tallies 
 
 ---
 
+### 2a — The Auto-Action Engine
+
+Before the report reaches the human review queue, it passes through the **auto-action engine** — a two-layer system that filters obvious cases so staff can focus on the hard ones.
+
+**Layer 1: deterministic rule engine.** Every report is scored 0-100 against objective, published signals:
+
+| Signal | Points |
+|--------|--------|
+| Machine-verified evidence (anticheat / FXServer bridge) | +40 |
+| Reporter-supplied evidence (screenshots, links) | +5 |
+| Each corroborating report from another server (last 7 days) | +25 (capped at +50) |
+| Target on HIGH RISK threat tier | +20 |
+| Target has prior network bans | +15 |
+| Reporter has ≥25 reports with ≥95% approval rate | +10 |
+| Target has prior successful appeal (innocent-until-proven-guilty prior) | −40 |
+
+Scores ≥ 90 trigger an **automatic network ban** with a 60-minute staff-undo window. Scores in a defined middle band are flagged **fast-track** — a single admin approval is sufficient. Everything else goes to the normal staff review queue. Protective gates (untrusted reporter, staff target, new account without machine evidence, reporter flood) short-circuit the pipeline before scoring.
+
+**Layer 2: AI judge (ambiguous cases only).** When the rule engine's score falls into the ambiguous middle and can't decide confidently, a structured case summary is sent to an AI judge (Anthropic Claude) for a second opinion. The AI returns an action, a confidence value, and a written rationale. Hard safety rails apply: the AI cannot recommend a ban without machine-verified evidence and corroboration, cannot override protective gates, and its `auto_ban` recommendation requires ≥ 0.90 confidence to take effect. The reasoning is logged to the audit trail and visible to reviewing staff and appellants. The entire AI layer is kill-switchable from the dashboard's Danger Zone.
+
+**Staff reporters** (management, administration, network admins, developers, support, testers) bypass the reputation gate automatically so their reports reach the scoring path — but the evidence bar is unchanged. Being staff doesn't lower the threshold for a ban.
+
+---
+
 ### 3 — Ban Deployment
 
 <figure><img src="sfx_banned.svg" alt="Banned" width="48"></figure>
@@ -106,7 +130,7 @@ A network ban on **any** of these blocks the player on **every** FXServer runnin
 
 ### HWID Evasion
 
-When a banned player creates a new Discord or Rockstar account to dodge the ban, the resource forwards the client's hardware tokens. If those tokens match a user already on the network ban list, the new account is flagged and blocked before it ever loads into the game. See [FiveM Overview](fivem.md) for how the identity ledger ties alts together.
+When a banned player creates a new Discord or Rockstar account to dodge the ban, the resource forwards the client's hardware tokens — always, on every connect, regardless of server configuration. The tokens are hashed on your FXServer before transmission. If the hash matches a user already on the network ban list, the new account is flagged and blocked before it ever loads into the game. See [FiveM Overview](fivem.md) for how the identity ledger ties alts together.
 
 ### Cross-Platform Coverage
 
@@ -123,6 +147,9 @@ Installing the resource is opt-in per FXServer. See [Installing the Resource](fi
 ```
 Report filed
     ↓
+Auto-action engine ──→  [Clear case? → Auto-ban + 60m undo]
+    ↓                   [Ambiguous? → AI judge → fast-track or queue]
+    ↓                   [Everything else → human review queue]
 Team votes (approve / deny)
     ↓
 Threshold reached

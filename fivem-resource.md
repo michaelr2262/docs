@@ -49,7 +49,7 @@ Hit **Create**.
 |----------|-------------|
 | `review` | **Default.** In-game bans queue for staff approval before hitting the network. Safest starting point. |
 | `auto`   | You trust your cheat-scan completely and want zero-latency network bans. |
-| `off`    | You want telemetry, HWID tracking, and dashboard stats, but no automatic network action. |
+| `off`    | You want telemetry, HWID evasion detection, and dashboard stats, but no automatic network action. |
 
 The mode is changeable from the dashboard at any time — no restart needed. See [Ban Modes & Propagation](fivem-ban-modes.md) for the full comparison.
 
@@ -144,3 +144,16 @@ You only **need** to re-download if:
 - You changed the server's name or cfx code and want that reflected in the baked config.
 
 Ban-mode changes **do not** require re-downloading. They take effect instantly from the dashboard.
+
+---
+
+## What the Resource Sends
+
+Each connect / disconnect / ban event transmitted by the resource carries:
+
+- **Player identifiers** provided by the FXServer runtime: `license`, `license2`, `steam`, `discord`, `fivem`, `xbl`, `live`, and the player's endpoint (IP).
+- **Hardware fingerprint tokens** issued by CFX/FiveM. These are always collected, hashed with HMAC-SHA256 on your server before transmission, and used exclusively for cross-account ban-evasion detection. Raw tokens never leave the FXServer.
+- **Display name** at the time of the event, the server's SentinelFX-issued `server_id`, and a UNIX timestamp.
+- Every payload is signed with your server's webhook secret; unsigned or tampered payloads are rejected by the API.
+
+The resource never transmits chat logs, file contents, gameplay data, or any information beyond the fields above. Full disclosure is in the [Privacy Policy](https://sentinelfx.net/privacy).
