@@ -17,7 +17,7 @@ There are three modes. You set one when you register the server, you change it a
 | Mode     | In-game ban | Discord action | Network action | When to pick it |
 |----------|-------------|----------------|----------------|-----------------|
 | `off`    | Logged to audit trail | None | None | You want telemetry and HWID tracking but no automated punishment. |
-| `review` | Logged, and a review case is posted to your staff review channel and the dashboard | Only if staff approve | Only if staff approve | **Default.** Good balance of speed and human oversight. |
+| `review` | Logged, and a review case is posted to the **SentinelFX HQ** review channel and the dashboard | Only if a network admin approves | Only if a network admin approves | **Default.** Good balance of speed and human oversight. |
 | `auto`   | Logged, and immediately deployed network-wide | Instant ban in every guild (if Discord ID is known) | Instant add to the network ban list | You have a cheat-scan you trust absolutely and want zero latency. |
 
 ---
@@ -40,7 +40,7 @@ The event lands in SentinelFX's audit log and the dashboard event stream, and th
 
 <figure><img src="sfx_appeal.svg" alt="Review" width="48"></figure>
 
-When your in-game scripts issue a ban, SentinelFX opens a **review case**. An embed goes to the staff review channel you configured for that server, with three buttons:
+When your in-game scripts issue a ban, SentinelFX opens a **review case**. An embed goes to the **SentinelFX HQ** review channel — a single, central channel staffed by network admins — with three buttons:
 
 | Button | Action |
 |--------|--------|
@@ -50,9 +50,11 @@ When your in-game scripts issue a ban, SentinelFX opens a **review case**. An em
 
 The review case shows the player's Discord account (if known), their in-game name, the identifiers they connected with, the HWID, the ban reason, and the source script that raised it.
 
+There is **no per-guild review channel**. Operators choose the mode but do not configure a destination; the review traffic from every guild on the network funnels through the SentinelFX HQ review queue. This keeps the decision-making consistent across the network and means any one guild's staff turnover doesn't strand cases.
+
 ### Who Can Press the Buttons
 
-Only members with the **Ban Members** permission or **Administrator** on the Discord server can resolve a case. Clicks from anyone else are rejected with a friendly error.
+Only members with the **Ban Members** permission or **Administrator** in the SentinelFX HQ control server can resolve a case. Clicks from anyone else are rejected with a friendly error.
 
 ### Immutable Decisions
 
