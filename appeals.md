@@ -6,43 +6,40 @@ description: How network-banned users can appeal and how the team reviews them.
 
 <figure><img src="sfx_appeal.svg" alt="Appeal" width="64"></figure>
 
-Any user with an active SentinelFX network ban can submit an appeal. If the SentinelFX Team approves it, the ban is lifted across every connected server simultaneously.
+Any user with an active SentinelFX network ban can submit an appeal. If the appeal is approved, the ban is lifted across every connected server simultaneously.
 
 ---
 
-## For Banned Users — How to Appeal
+## How to Appeal
 
-### Step 1 — Run `/appeal`
+### Step 1 — Use `/appeal`
 
-In any SentinelFX-protected server you still share with the bot, run:
+In any SentinelFX-protected server you still share with the bot, run the `/appeal` command. This opens a modal titled **Network Ban Appeal**.
 
-```
-/appeal
-```
-
-This opens a modal titled **Network Ban Appeal**. If you no longer share a server with the bot, skip to the dashboard alternative below.
+If you no longer share a server with the bot, skip to the dashboard alternative below.
 
 ### Step 2 — Write Your Appeal
 
-The modal has a single paragraph field — **"Why should your ban be lifted?"** — that accepts between **50 and 1,000 characters**. Be specific — vague appeals are less likely to be approved.
+The modal has a single paragraph field — *Why should your ban be lifted?* — that accepts between **50 and 1,000 characters**. Be specific — vague appeals are less likely to be approved.
 
 Things to include:
+
 - Why you believe the original ban was incorrect or unfair
 - Any context the team may not have had at the time
 - What has changed since the incident
 
 ### Step 3 — Wait for a Decision
 
-Your appeal goes into the SentinelFX Team's review queue. You cannot submit a second appeal while one is already open.
+Your appeal goes into the SentinelFX review queue. You cannot submit a second appeal while one is already open.
 
 The team will mark your appeal as one of the following:
 
 | Status | Meaning |
 |--------|---------|
-| `open` | Submitted, awaiting review |
-| `under_review` | A team member is actively reviewing it |
-| `approved` | Appeal granted — ban lifted across all servers |
-| `denied` | Appeal rejected — ban remains |
+| Open | Submitted, awaiting review |
+| Under review | A team member is actively reviewing it |
+| Approved | Appeal granted — ban lifted across all servers |
+| Denied | Appeal rejected — ban remains |
 
 {% hint style="info" %}
 If your appeal is approved, you will be unbanned from every network server automatically. You do not need to rejoin or contact individual server owners.
@@ -54,35 +51,18 @@ If you don't share a server with SentinelFX, log in at [sentinelfx.net](https://
 
 ---
 
-## For the SentinelFX Team — Reviewing Appeals
+## What Happens When a Ban is Lifted
 
-<figure><img src="sfx_approved.svg" alt="Approved" width="48"></figure>
+When an appeal is approved:
 
-Appeals are reviewed through the **SentinelFX Dashboard** at [sentinelfx.net](https://sentinelfx.net). The dashboard shows the team:
-
-- The full appeal text
-- The user's complete network history
-- Their current threat score
-- The original ban reason and evidence link
-- Status controls: **Approve**, **Deny**, **Under Review**
-
-### Discord Notification
-
-When a new appeal is submitted, a notification also appears in the HQ server so the team knows to check the dashboard. The HQ server provides quick **Approve** and **Deny** buttons that update the dashboard status in real time.
-
-{% hint style="warning" %}
-Once an appeal is marked **approved** or **denied**, its status cannot be changed again. Review the user's full history before approving.
-{% endhint %}
+1. The user is unbanned from every server with Auto-apply Bans enabled.
+2. The lift is logged in your server's mod-log channel (where the original deployment was logged).
+3. The user's history is retained for future reference — if they're network banned again later, the prior ban is factored into their threat score.
 
 ---
 
-## What Happens When a Ban is Lifted
+## A Note on Appeal Decisions
 
-When an appeal is approved (or a staff member lifts the ban from the dashboard):
+Appeals are reviewed by humans. Even when SentinelFX's automated triage layer was involved in the original ban, the appeal review is always a human-only step — no AI is involved in the decision to lift or uphold a ban.
 
-1. The user's `network_bans` record is updated to `lifted`
-2. The user is unbanned from every server with Auto-apply bans enabled
-3. The number of servers they were unbanned from is reported back
-4. A notification is sent to the HQ log channel
-
-The user's ban history (including `prior_bans` count) is retained in the database for future reference. If they are network banned again, their history is factored into their threat score.
+Once an appeal is marked approved or denied, that decision is final. If new evidence emerges later, you can submit a fresh appeal.

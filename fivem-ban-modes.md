@@ -16,17 +16,17 @@ There are three modes. You set one when you register the server, you change it a
 
 | Mode     | In-game ban | Discord action | Network action | When to pick it |
 |----------|-------------|----------------|----------------|-----------------|
-| `off`    | Logged to audit trail | None | None | You want telemetry and HWID tracking but no automated punishment. |
-| `review` | Logged, and a review case is posted to the **SentinelFX HQ** review channel and the dashboard | Only if a network admin approves | Only if a network admin approves | **Default.** Good balance of speed and human oversight. |
-| `auto`   | Logged, and immediately deployed network-wide | Instant ban in every guild (if Discord ID is known) | Instant add to the network ban list | You have a cheat-scan you trust absolutely and want zero latency. |
+| Off    | Logged | None | None | You want telemetry and HWID tracking but no automated punishment. |
+| Review | Logged, sent to SentinelFX for review | Only if a network admin approves | Only if a network admin approves | **Default.** Good balance of speed and human oversight. |
+| Auto   | Logged, deployed network-wide instantly | Instant ban in every guild (if Discord ID is known) | Instant add to the network ban list | You have a cheat-scan you trust absolutely and want zero latency. |
 
 ---
 
-## `off` — Log Only
+## Off — Log Only
 
 <figure><img src="sfx_scanning.svg" alt="Log only" width="48"></figure>
 
-The event lands in SentinelFX's audit log and the dashboard event stream, and the player's identifiers and hardware fingerprint are merged into the identity ledger — but nothing else happens. No Discord ban, no network ban, no staff notification.
+The event lands in SentinelFX's audit log and the dashboard event stream, and the player's identifiers and hardware fingerprint are merged into the identity ledger — but nothing else happens. No Discord ban, no network ban, no notification.
 
 **Pick this when:**
 
@@ -36,43 +36,39 @@ The event lands in SentinelFX's audit log and the dashboard event stream, and th
 
 ---
 
-## `review` — Staff Decides (Default)
+## Review — Decided by SentinelFX Network Admins (Default)
 
 <figure><img src="sfx_appeal.svg" alt="Review" width="48"></figure>
 
-When your in-game scripts issue a ban, SentinelFX opens a **review case**. An embed goes to the **SentinelFX HQ** review channel — a single, central channel staffed by network admins — with three buttons:
+When your in-game scripts issue a ban, SentinelFX opens a **review case** and sends it for review by network admins. Each case carries the player's Discord account (if known), their in-game name, the identifiers they connected with, the HWID, the ban reason, and the source script that raised it.
 
-| Button | Action |
+The reviewer can approve, deny, or ignore the case:
+
+| Decision | Action |
 |--------|--------|
-| **Approve ban** | Deploys a full network ban — Discord across every guild, plus the FiveM ban list. |
-| **Deny** | Marks the case as wrongly flagged. No action taken. |
-| **Ignore (log only)** | Closes the case without action, but keeps the audit record. |
+| Approve | Deploys a full network ban — Discord across every guild, plus the FiveM ban list. |
+| Deny | Marks the case as wrongly flagged. No action taken. |
+| Ignore | Closes the case without action, but keeps the audit record. |
 
-The review case shows the player's Discord account (if known), their in-game name, the identifiers they connected with, the HWID, the ban reason, and the source script that raised it.
-
-There is **no per-guild review channel**. Operators choose the mode but do not configure a destination; the review traffic from every guild on the network funnels through the SentinelFX HQ review queue. This keeps the decision-making consistent across the network and means any one guild's staff turnover doesn't strand cases.
-
-### Who Can Press the Buttons
-
-Only members with the **Ban Members** permission or **Administrator** in the SentinelFX HQ control server can resolve a case. Clicks from anyone else are rejected with a friendly error.
+There is **no per-guild review channel**. Operators choose the mode but do not configure a destination; review traffic from every guild on the network is decided by SentinelFX network admins. This keeps decision-making consistent across the network and means any one guild's staff turnover doesn't strand cases.
 
 ### Immutable Decisions
 
-Once a case is resolved — approved, denied, or ignored — the buttons disappear and the embed colour changes to reflect the outcome. You cannot re-open a closed case; if you change your mind, issue a fresh ban or a fresh appeal.
+Once a case is resolved — approved, denied, or ignored — the decision is final. You cannot re-open a closed case; if you change your mind, issue a fresh ban or appeal the one that was applied.
 
 ### Stale Cases
 
-If a review case sits open for longer than a week, the Watchdog marks it `expired` so it stops cluttering the queue. The audit record stays.
+If a review case sits open for longer than a week, it's marked expired so it stops cluttering the queue. The audit record stays.
 
 **Pick this when:**
 
 - You want a human in the loop before a network-wide action.
 - Your cheat-scan occasionally false-positives.
-- Your staff channel is active enough that cases get answered in a reasonable window.
+- You'd rather a case wait a few hours than risk an incorrect ban going wide.
 
 ---
 
-## `auto` — Immediate Network Ban
+## Auto — Immediate Network Ban
 
 <figure><img src="sfx_alert.svg" alt="Auto mode" width="48"></figure>
 
@@ -80,16 +76,16 @@ The ban is deployed the instant it arrives. There is no review step. SentinelFX:
 
 1. Writes the ban into the network ban list (immediately blocks the player on every FXServer running the resource).
 2. If a Discord ID is known for the player, bans them across every guild in the network.
-3. Posts the action to your configured network-alerts channel.
+3. Logs the action to the audit trail.
 
 **Pick this when:**
 
-- You've been running in `review` mode long enough to trust your scan.
+- You've been running in *Review* mode long enough to trust your scan.
 - Your scan's false-positive rate is effectively zero.
 - You'd rather deal with rare appeals than give cheaters a window of extra minutes.
 
 {% hint style="warning" %}
-`auto` mode means one bad regex in your cheat-scan can cross-ban real players across the entire network. Use it deliberately.
+*Auto* mode means one bad regex in your cheat-scan can cross-ban real players across the entire network. Use it deliberately.
 {% endhint %}
 
 ---
@@ -102,10 +98,10 @@ Open the dashboard, go to the **FiveM** tab, pick your server, and switch the mo
 
 You can change it as often as you like. A common pattern:
 
-- Start in `review` for the first few weeks.
-- Watch the review queue — how often does staff approve vs deny?
-- If approvals are overwhelmingly the outcome and your scan looks solid, switch to `auto`.
-- If you see any deny pile up, stay in `review`.
+- Start in *Review* for the first few weeks.
+- Watch the queue — how often does the ban get approved versus denied?
+- If approvals are overwhelmingly the outcome and your scan looks solid, switch to *Auto*.
+- If you see denies pile up, stay in *Review*.
 
 ---
 
@@ -116,7 +112,7 @@ A network ban can only propagate to Discord **when SentinelFX knows the player's
 1. **Cfx.re linked accounts** — if the player has linked their Discord to their Cfx.re account, FiveM exposes the identifier and SentinelFX picks it up automatically.
 2. **Prior activity** — if the player was ever banned through Discord first, or if they connected while logged into Discord on another SentinelFX-connected FXServer, the identity ledger already knows them.
 
-If neither is true, the ban applies **only on the FiveM side** — they're blocked from every FXServer in the network, but they remain free to behave themselves on Discord. The FiveM ban list is identifier-keyed (license, Steam, Xbox, Cfx.re, HWID), so they're still caught everywhere they'd try to reconnect.
+If neither is true, the ban applies **only on the FiveM side** — they're blocked from every FXServer in the network, but they remain free to behave themselves on Discord. The FiveM ban list is identifier-keyed (licence, Steam, Xbox, Cfx.re, HWID), so they're still caught everywhere they'd try to reconnect.
 
 ---
 

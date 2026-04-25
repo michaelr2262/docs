@@ -12,27 +12,16 @@ The Anti-Raid module monitors your server's join activity in real time. When it 
 
 ## How Raid Detection Works
 
-The module maintains a sliding window of recent join timestamps for each server.
+The module tracks recent join timestamps for your server in a rolling window. If the join count inside the window crosses a threshold, lockdown triggers.
 
-**Algorithm:**
-
-```
-On each member join:
-    1. Remove timestamps older than raid_window seconds
-    2. Add current timestamp
-    3. Count joins in window
-    4. If count >= raid_threshold → trigger lockdown
-    5. If already in lockdown → kick the new join immediately
-```
-
-**Default settings** (configurable via `/config thresholds`):
+**Default settings (configurable via `/config thresholds`):**
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| `raid_threshold` | 10 | Joins within the window before lockdown triggers |
-| `raid_window` | 10 | Seconds to look back when counting joins |
+| Raid threshold | 10 | Joins within the window before lockdown triggers |
+| Raid window | 10 | Seconds to look back when counting joins |
 
-So by default: **10 joins within 10 seconds** = raid detected.
+By default this means **10 joins within 10 seconds** triggers a raid response.
 
 ---
 
@@ -42,10 +31,10 @@ So by default: **10 joins within 10 seconds** = raid detected.
 
 When a raid is detected:
 
-1. **Lockdown activates** — the server enters a locked state
-2. **All new joins are kicked immediately** with a DM explaining the situation
-3. **Alert sent** to your configured raid-alert channel with an **Unlock** button
-4. **Auto-unlock** fires after 10 minutes if the team hasn't unlocked manually
+1. Lockdown activates — the server enters a locked state.
+2. All new joins are kicked immediately with a DM explaining the situation.
+3. An alert is sent to your configured raid-alert channel with an **Unlock** button.
+4. Auto-unlock fires after 10 minutes if the team hasn't unlocked manually.
 
 The Unlock button in the alert lets any moderator clear the lockdown instantly without a command.
 
@@ -53,26 +42,13 @@ The Unlock button in the alert lets any moderator clear the lockdown instantly w
 
 ## Enabling Anti-Raid
 
-```
-/config toggle anti-raid true
-/config set-channel raid_alert_ch #raid-alerts
-```
+Turn Anti-Raid on with `/config toggle` and point it at a raid-alert channel using `/config set-channel`.
 
 ---
 
 ## Manual Lockdown
 
-You can trigger lockdown manually if you spot a raid forming before the threshold is reached:
-
-```
-/lockdown on
-```
-
-And deactivate it:
-
-```
-/lockdown off
-```
+You can trigger lockdown manually if you spot a raid forming before the threshold is reached using the `/lockdown` command. Use the same command to deactivate it.
 
 ---
 
@@ -80,10 +56,10 @@ And deactivate it:
 
 When a raid is detected, the embed in your raid-alert channel shows:
 
-- The join count and time window that triggered detection
-- Current lockdown status
-- A timestamp
-- The **🔓 Unlock Server** button
+- The join count and time window that triggered detection.
+- Current lockdown status.
+- A timestamp.
+- The **Unlock Server** button.
 
 {% hint style="warning" %}
 During lockdown, legitimate users who try to join will also be kicked. The auto-unlock at 10 minutes is intentional — raids rarely last that long, and this prevents moderators from forgetting to unlock.

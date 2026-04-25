@@ -4,6 +4,7 @@
 * [Introduction](README.md)
 * [Getting Started](getting-started.md)
 * [How the Network Works](network-protection.md)
+* [Appeals](appeals.md)
 
 ## Commands
 * [Commands Overview](commands/README.md)

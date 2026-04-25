@@ -18,22 +18,24 @@ Auto-Mod skips messages from moderators, admins, and bots. Only regular members 
 
 ### Content Violations
 
-| Violation | Detection Method |
-|-----------|----------------|
-| **Spam** | `spam_limit` messages sent within 5 seconds (default: 5) |
-| **Duplicate spam** | Same message sent 3 or more times in the last 5 messages |
-| **Mass mentions** | `mention_limit` or more user/role pings in one message (default: 5) |
-| **Banned words** | Any word or phrase on your server's banned list (case-insensitive) |
-| **Scam / phishing links** | Discord Nitro scams, Steam phishing, free Robux, bit.ly redirects, and similar |
-| **Uninvited Discord invites** | Any Discord server invite link (unless the sender is a mod) |
+| Violation | Detection |
+|-----------|-----------|
+| Spam | Too many messages sent in a short rolling window |
+| Duplicate spam | The same message sent repeatedly in quick succession |
+| Mass mentions | Too many user or role pings in one message |
+| Banned words | Any word or phrase on your server's banned list (case-insensitive) |
+| Scam / phishing links | Discord Nitro scams, Steam phishing, free Robux, link shorteners, and similar |
+| Uninvited Discord invites | Any Discord server invite link (unless the sender is a mod) |
+
+The exact thresholds are tunable from `/config thresholds` — see [Server Configuration](../configuration.md).
 
 ---
 
 ## Strike System
 
-Auto-Mod tracks violations **per user per session** in a 10-minute rolling window. Each violation adds a strike.
+Auto-Mod tracks violations **per user per session** in a short rolling window. Each violation adds a strike.
 
-**Mute thresholds:**
+**Mute thresholds (cumulative within the session):**
 
 | Strikes | Auto-Mute Duration |
 |---------|--------------------|
@@ -51,21 +53,21 @@ Auto-Mod also monitors message rates **per channel** to manage sudden activity s
 
 **How it works:**
 
-1. Counts messages in 5-second windows per channel
-2. If **10 or more messages** arrive in a 5-second window, it identifies the heavy senders (anyone who sent 4+ messages in that window)
-3. Applies slowmode to the channel based on spike intensity
+1. Counts messages in short windows per channel.
+2. If the rate climbs above a threshold, it identifies the heavy senders.
+3. Applies slowmode to the channel based on spike intensity.
 
 **Slowmode levels:**
 
 | Spike Intensity | Slowmode Applied |
 |----------------|----------------|
-| Moderate (10–14 msgs/5s) | 10 seconds |
-| High (15–19 msgs/5s) | 15 seconds |
-| Severe (20+ msgs/5s) | 30 seconds |
+| Moderate | 10 seconds |
+| High | 15 seconds |
+| Severe | 30 seconds |
 
 Heavy senders also receive strikes for contributing to the spike and may be auto-muted.
 
-**Auto-lift:** Slowmode is automatically removed **30 seconds after** the message rate returns to normal.
+**Auto-lift:** Slowmode is automatically removed shortly after the message rate returns to normal.
 
 ---
 
@@ -73,37 +75,18 @@ Heavy senders also receive strikes for contributing to the spike and may be auto
 
 For every violation detected:
 
-```
-Message sent
-    ↓
-Auto-Mod checks content
-    ↓
-Violation found → Delete message
-    ↓
-Add strike to user's in-session count
-    ↓
-Log warning to database
-    ↓
-DM user with violation reason and current strike count
-    ↓
-Check strike count → Apply mute if threshold reached
-    ↓
-Check DB warning count → Escalate to kick/ban if thresholds reached
-    ↓
-Log action to mod-log channel
-```
+1. The message is deleted.
+2. A strike is added to the user's in-session count.
+3. A warning is recorded.
+4. The user gets a DM with the violation reason and current strike count.
+5. If the strike threshold is reached, an auto-mute is applied.
+6. If the user's total warning count exceeds your server's kick or ban threshold, they're escalated.
+7. The full action is logged to your mod-log channel.
 
 ---
 
 ## Enabling Auto-Mod
 
-```
-/config toggle auto-mod true
-```
+Use `/config toggle` to turn Auto-Mod on. Use `/config thresholds` to tune the spam and mention limits.
 
-To set your banned word list, use the [Web Dashboard → Auto-Mod](../dashboard.md) — add, remove, and bulk-paste words from a searchable table.
-
-To adjust thresholds:
-```
-/config thresholds spam_limit:4
-```
+To set your banned word list, use the **Web Dashboard → Auto-Mod** — add, remove, and bulk-paste words from a searchable table.
